@@ -12,8 +12,9 @@ c = [x1 x2 x3 x4 x5 x6 x7 x8 x9]; % costs of all edges
 b = ones(9,1)*2;
 
 % all eight of the subtour elimination constraints
-S = [zeros(1, 50) 1 zeros(1, 9) 1 zeros(1, 6) 1 zeros(1, 14) % x_pq + x_qr + x_rp <= 2
-    ] 
+S = [zeros(1, 50) 1 zeros(1, 9) 1 zeros(1, 6) 1 zeros(1, 12) % x_pq + x_qr + x_rp
+    zeros(1, 58) 1 0 1 zeros(1, 6) 1 zeros(1, 12) % x_qp + x_qr + x_rp
+    zeros(1, 50) 1 zeros(1, 17) 1 1 zeros(1, 12)] % x_pq + x_rq + x_rp
 % we will need to add the constraint Sx <= 2, so we can append S to A
 
 A = zeros(9,81);
